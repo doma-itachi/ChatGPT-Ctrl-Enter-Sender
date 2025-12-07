@@ -8,7 +8,8 @@ function shouldHandleCtrlEnter(url, event) {
   else if (url.startsWith("https://gemini.google.com")) {
     return event.target.tagName === "DIV" &&
            event.target.classList.contains("ql-editor") &&
-           event.target.contentEditable === "true";
+           event.target.contentEditable === "true" &&
+           !(event.shiftKey && event.code === "Enter");
   }
   else if (url.startsWith("https://www.phind.com")) {
     return event.target.tagName === "DIV" &&
