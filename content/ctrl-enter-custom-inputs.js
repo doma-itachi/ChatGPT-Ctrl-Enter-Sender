@@ -6,9 +6,15 @@ function shouldHandleCtrlEnter(url, event) {
     return event.target.tagName === "TEXTAREA" && event.target.classList.contains("query-box-input");
   }
   else if (url.startsWith("https://gemini.google.com")) {
-    return event.target.tagName === "DIV" &&
-           event.target.classList.contains("ql-editor") &&
-           event.target.contentEditable === "true";
+    return (
+      (
+        event.target.tagName === "DIV" &&
+        event.target.classList.contains("ql-editor") &&
+        event.target.contentEditable === "true"
+      ) || (
+        event.target.tagName === "TEXTAREA"
+      )) &&
+      !(event.shiftKey && event.code === "Enter");
   }
   else if (url.startsWith("https://www.phind.com")) {
     return event.target.tagName === "DIV" &&
