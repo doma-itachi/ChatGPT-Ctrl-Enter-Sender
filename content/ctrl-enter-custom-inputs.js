@@ -6,9 +6,15 @@ function shouldHandleCtrlEnter(url, event) {
     return event.target.tagName === "TEXTAREA" && event.target.classList.contains("query-box-input");
   }
   else if (url.startsWith("https://gemini.google.com")) {
-    return event.target.tagName === "DIV" &&
-           event.target.classList.contains("ql-editor") &&
-           event.target.contentEditable === "true";
+    return (
+      (
+        event.target.tagName === "DIV" &&
+        event.target.classList.contains("ql-editor") &&
+        event.target.contentEditable === "true"
+      ) || (
+        event.target.tagName === "TEXTAREA"
+      )) &&
+      !(event.shiftKey && event.code === "Enter");
   }
   else if (url.startsWith("https://www.phind.com")) {
     return event.target.tagName === "DIV" &&
@@ -19,7 +25,7 @@ function shouldHandleCtrlEnter(url, event) {
     return event.target.id === "chat-input";
   }
   else if (url.startsWith("https://grok.com")) {
-    return event.target.tagName === "TEXTAREA";
+    return event.target.tagName === "TEXTAREA" || (event.target.tagName === "DIV" && event.target.contentEditable === "true");
   }
   else if (url.startsWith("https://github.com")) {
     return event.target.getAttribute("placeholder") === "Ask Copilot";

@@ -65,3 +65,5 @@ If you encounter any issues, we recommend disabling these extensions temporarily
 * [S. Ota](https://github.com/susumuota)
 * [inadati](https://github.com/inadati)
 * [Kohei Nakada](https://github.com/ankd-k)
+* [itachi](https://github.com/doma-itachi)
+* [shuya goto](https://github.com/syuya2036)
