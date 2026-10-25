@@ -540,7 +540,7 @@ test("copilot.com の /chat 以外は対象外にする", () => {
   assert.equal(dispatchedEvents.length, 0);
 });
 
-// ── copilot.com tests ───────────────────────────────────────────────────────
+// ── Muse tests ───────────────────────────────────────────────────────
 
 function createMuseTextareaTarget({ value = "text" } = {}) {
   const { target, dispatchedEvents } = createTextareaTarget({ value });
